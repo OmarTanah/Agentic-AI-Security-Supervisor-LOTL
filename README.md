@@ -8,17 +8,16 @@
 Instead of relying on rigid rules or black-box ML models, LOTL-ARIA uses a **ReAct (Reasoning + Acting)** LLM agent to investigate raw system events (from `auditd` and `sudo` logs), form dual hypotheses (malicious vs. benign), and propose a graded response. To ensure safety, all agent actions must pass through a **Multi-Layer Deterministic Safety Gate** to prevent prompt injection attacks.
 
 ## 📖 Documentation
-- [Research Paper](docs/LOTL-ARIA_Research_Paper.pdf)
-- [Seminar Presentation](docs/Seminar_1_Presentation.pptx)
+- [Research Paper](docs/Agentic-LOTL-Attack-Supervisor.pdf)
 
 ## 🏗️ Architecture
 *(The following diagrams illustrate the target architecture for the completed project)*
 
 ### System Architecture
-![System Architecture](diagrams/Architecture_Diagram.png)
+![System Architecture](System-Architecture.jpg)
 
 ### Process Flowchart
-![Process Flowchart](diagrams/Process_Flowchart.png)
+![Process Flowchart](diagrams/Flowchart-Diagram.jpg)
 
 ## 🚀 Current Progress (Semester 1)
 - [x] Literature Review (11 recent papers)
@@ -29,8 +28,6 @@ Instead of relying on rigid rules or black-box ML models, LOTL-ARIA uses a **ReA
   - Multi-layer De-obfuscation (Base64, Hex, ANSI-C)
   - Heuristic Severity Scoring
   - SQLite Audit Database & Deduplication
-- [ ] **Layer 2: ReAct Agent Core** (In Progress)
-- [ ] **Layer 3: Safety Gate & Execution** (Planned for Semester 2)
 
 ## ⚙️ How to Run (Layer 1 Prototype)
 
@@ -41,7 +38,7 @@ Instead of relying on rigid rules or black-box ML models, LOTL-ARIA uses a **ReA
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YOUR_USERNAME/LOTL-ARIA.git
+   git clone https://github.com/OmarTanah/LOTL-ARIA.git
    cd LOTL-ARIA
    ```
 2. Create a virtual environment and install dependencies:
