@@ -38,8 +38,8 @@ Instead of relying on rigid rules or black-box ML models, LOTL-ARIA uses a **ReA
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/OmarTanah/LOTL-ARIA.git
-   cd LOTL-ARIA
+   git clone https://github.com/OmarTanah/Agentic-AI-Security-Supervisor-LOTL.git
+   cd Agentic-AI-Security-Supervisor-LOTL
    ```
 2. Create a virtual environment and install dependencies:
    ```bash
