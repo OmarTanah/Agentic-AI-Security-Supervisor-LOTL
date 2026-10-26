@@ -1,0 +1,22 @@
+# Virtual Environments
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Database files (we don't want local test data on GitHub)
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# Environment variables
+.env
+
+# IDE settings
+.vscode/
+.idea/
