@@ -8,16 +8,16 @@
 Instead of relying on rigid rules or black-box ML models, LOTL-ARIA uses a **ReAct (Reasoning + Acting)** LLM agent to investigate raw system events (from `auditd` and `sudo` logs), form dual hypotheses (malicious vs. benign), and propose a graded response. To ensure safety, all agent actions must pass through a **Multi-Layer Deterministic Safety Gate** to prevent prompt injection attacks.
 
 ## 📖 Documentation
-- [Research Paper](docs/Agentic-LOTL-Attack-Supervisor.pdf)
+- [Research Paper](docs/research_paper.pdf)
 
 ## 🏗️ Architecture
 *(The following diagrams illustrate the target architecture for the completed project)*
 
 ### System Architecture
-![System Architecture](System-Architecture.jpg)
+![System Architecture](system_architecture.jpg)
 
 ### Process Flowchart
-![Process Flowchart](diagrams/Flowchart-Diagram.jpg)
+![Process Flowchart](diagrams/flowchart_diagram.jpg)
 
 ## 🚀 Current Progress (Semester 1)
 - [x] Literature Review (11 recent papers)
