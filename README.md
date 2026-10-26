@@ -14,7 +14,7 @@ Instead of relying on rigid rules or black-box ML models, LOTL-ARIA uses a **ReA
 *(The following diagrams illustrate the target architecture for the completed project)*
 
 ### System Architecture
-![System Architecture](system_architecture.jpg)
+![System Architecture](diagrams/system_architecture.jpg)
 
 ### Process Flowchart
 ![Process Flowchart](diagrams/flowchart_diagram.jpg)
