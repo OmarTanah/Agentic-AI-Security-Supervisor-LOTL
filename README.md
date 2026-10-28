@@ -10,6 +10,8 @@ Instead of relying on rigid rules or black-box ML models, LOTL-ARIA uses a **ReA
 ## 📖 Documentation
 - [Download/View the Research Paper](https://github.com/OmarTanah/Agentic-AI-Security-Supervisor-LOTL/raw/main/docs/research_paper.pdf)
 
+- [Download the Seminar Presentation (PPTX)](https://github.com/OmarTanah/Agentic-AI-Security-Supervisor-LOTL/raw/main/docs/seminar1_presentation.pptx)
+
 ## 🏗️ Architecture
 *(The following diagrams illustrate the target architecture for the completed project)*
 
