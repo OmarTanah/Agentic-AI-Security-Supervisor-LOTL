@@ -1,0 +1,22 @@
+{
+  "find": {
+    "functions": ["shell", "file-read"],
+    "risk": "high"
+  },
+  "vim": {
+    "functions": ["shell", "file-write"],
+    "risk": "high"
+  },
+  "nano": {
+    "functions": ["shell"],
+    "risk": "medium"
+  },
+  "awk": {
+    "functions": ["shell"],
+    "risk": "high"
+  },
+  "tar": {
+    "functions": ["shell"],
+    "risk": "medium"
+  }
+}

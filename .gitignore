@@ -7,14 +7,15 @@ env/
 __pycache__/
 *.pyc
 *.pyo
+.pytest_cache/
 
-# Database files (we don't want local test data on GitHub)
+# Database files (Local test data)
 *.db
 *.sqlite
 *.sqlite3
-data/
+data/*.db
 
-# Environment variables
+# Environment variables (Secrets)
 .env
 
 # IDE settings
