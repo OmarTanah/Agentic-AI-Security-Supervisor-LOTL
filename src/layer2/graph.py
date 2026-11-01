@@ -7,7 +7,9 @@ from langgraph.graph import END, START, StateGraph
 from .llm import get_llm
 from .prompts import SYSTEM_PROMPT
 from .state import AgentState
+from .tools.baseline import get_user_baseline
 from .tools.gtfobins import check_gtfobins
+from .tools.process_tree import get_process_tree
 
 llm: Any = None
 
@@ -97,21 +99,38 @@ def action_node(state: AgentState) -> dict[str, Any]:
 	action = state["action"]
 	if action == "final_answer":
 		return {"final_answer": state["thought"], "stopped": True}
-	if action != "check_gtfobins":
+	action_input = state["action_input"]
+	if action == "check_gtfobins":
+		value = action_input.get("binary")
+		if value is None:
+			value = _event_value(state["event"], "binary", "command_clean", "command") or ""
+		result = check_gtfobins(str(value))
+		evidence_marker = "gtfobins:true"
+		confidence_delta = 0.25 if result.get("is_gtfobin") is True else 0.0
+	elif action == "get_user_baseline":
+		value = action_input.get("username")
+		if value is None:
+			value = _event_value(state["event"], "user", "username") or ""
+		result = get_user_baseline(str(value))
+		evidence_marker = "baseline:anomaly"
+		confidence_delta = 0.15 if result.get("is_anomaly") is True else 0.0
+	elif action == "get_process_tree":
+		value = action_input.get("command")
+		if value is None:
+			value = _event_value(state["event"], "command_clean", "command") or ""
+		result = get_process_tree(str(value))
+		evidence_marker = "parent:suspicious"
+		confidence_delta = 0.15 if result.get("is_suspicious_parent") is True else 0.0
+	else:
 		return {
 			"observation": {"error": f"Unknown read-only tool: {action}"},
 			"evidence": state["evidence"] + [f"unknown_tool:{action}"],
 		}
-
-	binary = state["action_input"].get("binary")
-	if binary is None:
-		binary = _event_value(state["event"], "binary", "command") or ""
-	result = check_gtfobins(str(binary))
 	updates: dict[str, Any] = {"observation": result}
 	evidence = list(state["evidence"])
-	if result.get("is_gtfobin") is True and "gtfobins:true" not in evidence:
-		updates["confidence"] = min(1.0, state["confidence"] + 0.25)
-		evidence.append("gtfobins:true")
+	if confidence_delta and evidence_marker not in evidence:
+		updates["confidence"] = min(1.0, state["confidence"] + confidence_delta)
+		evidence.append(evidence_marker)
 
 	parent = str(_event_value(state["event"], "parent_process", "parent") or "").lower()
 	if any(server in parent for server in ("httpd", "apache", "nginx", "iis", "gunicorn", "uwsgi")) and "parent:web_server" not in evidence:
