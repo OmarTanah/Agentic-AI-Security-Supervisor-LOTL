@@ -29,6 +29,29 @@ def _model_text(response: Any) -> str:
 	return str(content)
 
 
+def _extract_json_object(text: str) -> str:
+	"""Extract the first valid JSON object from model output."""
+	cleaned = text.strip()
+	if cleaned.startswith("```"):
+		lines = cleaned.splitlines()
+		if lines and lines[0].startswith("```"):
+			lines = lines[1:]
+		if lines and lines[-1].strip() == "```":
+			lines = lines[:-1]
+		cleaned = "\n".join(lines).strip()
+
+	decoder = json.JSONDecoder()
+	for index, character in enumerate(cleaned):
+		if character != "{":
+			continue
+		try:
+			_, end = decoder.raw_decode(cleaned[index:])
+			return cleaned[index : index + end]
+		except json.JSONDecodeError:
+			continue
+	raise json.JSONDecodeError("No valid JSON object found", cleaned, 0)
+
+
 def thought_node(state: AgentState) -> dict[str, Any]:
 	"""Ask Gemini for the next ReAct thought and action."""
 	global llm
@@ -40,8 +63,10 @@ def thought_node(state: AgentState) -> dict[str, Any]:
 			HumanMessage(content=json.dumps(dict(state), default=str)),
 		]
 	)
+	raw_text = _model_text(response)
+	print(f"RAW LLM OUTPUT: {response}")
 	try:
-		decision = json.loads(_model_text(response))
+		decision = json.loads(_extract_json_object(raw_text))
 		if not isinstance(decision, dict):
 			raise TypeError("LLM response must be a JSON object")
 		action_input = decision.get("action_input", {})
@@ -103,8 +128,11 @@ def action_node(state: AgentState) -> dict[str, Any]:
 
 def evaluate_node(state: AgentState) -> dict[str, Any]:
 	"""Mark the investigation complete when a stopping condition is met."""
+	iteration = state["iteration"]
+	confidence = state["confidence"]
+	print(f"Iteration {iteration}: Confidence = {confidence}")
 	stopped = state["stopped"] or state["confidence"] >= 0.8 or state["confidence"] <= 0.2
-	if state["iteration"] >= state["max_iterations"]:
+	if iteration >= 3 or iteration >= state["max_iterations"]:
 		stopped = True
 	return {"stopped": stopped}
 
