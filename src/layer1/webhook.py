@@ -14,9 +14,19 @@ SHARED_SECRET = ""
 
 def create_app(store: Store | None = None, dispatch=None) -> Flask:
     """`dispatch(event)` is the hand-off to Layer 2 (the ReAct agent)."""
+    from src.layer2.agent import run_agent
+
     app = Flask(__name__)
     store = store or Store()
-    dispatch = dispatch or (lambda ev: log.info("EVENT -> agent queue: %s", ev["event_id"]))
+
+    def default_dispatch(event: dict) -> None:
+        try:
+            verdict = run_agent(event)
+            log.info("EVENT -> agent verdict: %s", verdict)
+        except Exception:
+            log.exception("Layer 2 agent failed for event %s", event.get("event_id"))
+
+    dispatch = dispatch or default_dispatch
 
     @app.post("/wazuh/event")
     def ingest():

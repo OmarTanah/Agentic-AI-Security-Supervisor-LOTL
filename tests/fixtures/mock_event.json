@@ -1,0 +1,7 @@
+{
+  "command_clean": "sudo find . -exec /bin/sh \\;",
+  "user": "www-data",
+  "host": "ubuntu-web-01",
+  "severity": "high",
+  "severity_reasons": ["priv_esc_pattern"]
+}
