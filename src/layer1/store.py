@@ -2,6 +2,7 @@
 import json
 import sqlite3
 import time
+import os
 
 DEDUP_WINDOW_S = 60
 
@@ -16,6 +17,9 @@ CREATE TABLE IF NOT EXISTS dedup(key TEXT PRIMARY KEY, last_seen REAL, count INT
 
 class Store:
     def __init__(self, path="data/audit.db"):
+        # Create the directory if it doesn't exist
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+
         self.db = sqlite3.connect(path, check_same_thread=False)
         self.db.executescript(SCHEMA)
 
