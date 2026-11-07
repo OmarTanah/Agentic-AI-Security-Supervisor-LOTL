@@ -151,7 +151,7 @@ def evaluate_node(state: AgentState) -> dict[str, Any]:
 	confidence = state["confidence"]
 	print(f"Iteration {iteration}: Confidence = {confidence}")
 	stopped = state["stopped"] or state["confidence"] >= 0.8 or state["confidence"] <= 0.2
-	if iteration >= 3 or iteration >= state["max_iterations"]:
+	if iteration >= 10 or iteration >= state["max_iterations"]:
 		stopped = True
 	return {"stopped": stopped}
 
