@@ -13,6 +13,9 @@ from .store import Store
 
 log = logging.getLogger("lotl_aria.layer1")
 SHARED_SECRET = ""
+AUDITD_INTERESTING_KEYWORDS = (
+    "sudo", "find", "bash", "sh", "nc", "socat", "python", "perl", "vim", "nano", "awk", "tar"
+)
 
 
 def run_agent_task(ev: dict) -> None:
@@ -50,13 +53,18 @@ def create_app(store: Store | None = None, dispatch=None) -> Flask:
             ev = normalize(raw)
             if ev is None:
                 results.append({"status": "ignored", "reason": "no command field"})
+            elif ev["source"] == "auditd" and not any(
+                keyword in ev["command_clean"].lower() for keyword in AUDITD_INTERESTING_KEYWORDS
+            ):
+                results.append({"status": "ignored", "reason": "benign_auditd_command"})
             elif store.is_duplicate(ev["dedup_key"]):
                 results.append({"status": "dropped", "reason": "duplicate<60s"})
             else:
                 store.save_event(ev)
                 dispatch(ev)
                 results.append({"status": "accepted", "event_id": ev["event_id"], "severity": ev["severity"]})
-        return jsonify(results[0] if not isinstance(payload, list) else results), 202
+        status_code = 200 if results and all(result["status"] == "ignored" for result in results) else 202
+        return jsonify(results[0] if not isinstance(payload, list) else results), status_code
 
     @app.get("/health")
     def health():

@@ -10,6 +10,7 @@ from .state import AgentState
 from .tools.baseline import get_user_baseline
 from .tools.gtfobins import check_gtfobins
 from .tools.process_tree import get_process_tree
+from .tools.wazuh_logs import query_wazuh_logs
 
 llm: Any = None
 
@@ -121,6 +122,13 @@ def action_node(state: AgentState) -> dict[str, Any]:
 		result = get_process_tree(str(value))
 		evidence_marker = "parent:suspicious"
 		confidence_delta = 0.15 if result.get("is_suspicious_parent") is True else 0.0
+	elif action == "query_wazuh_logs":
+		value = action_input.get("query")
+		if value is None:
+			value = _event_value(state["event"], "command_clean", "command") or ""
+		result = query_wazuh_logs(str(value))
+		evidence_marker = "wazuh_logs:match"
+		confidence_delta = 0.0
 	else:
 		return {
 			"observation": {"error": f"Unknown read-only tool: {action}"},

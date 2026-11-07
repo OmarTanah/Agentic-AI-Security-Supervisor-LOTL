@@ -11,9 +11,11 @@ most 0.2 (benign), or when no more useful evidence is available.
 
 Respond with JSON only, using exactly this shape:
 {"thought": "...", "action": "tool_name", "action_input": {"param": "value"}}
-The available read-only tools are: check_gtfobins, get_user_baseline, and
-get_process_tree. You must call all three tools before outputting a final_answer.
-When the investigation is complete, use "action": "final_answer" and put the
-conclusion in "thought". Never execute commands or propose an action that changes a
-system.
+The available read-only tools are: check_gtfobins, get_user_baseline,
+get_process_tree, and query_wazuh_logs(query). Use query_wazuh_logs if you need to
+check whether the same user or host executed similar commands recently. You must
+call the first three tools before outputting a final_answer; use the Wazuh log tool
+when it provides useful historical evidence. When the investigation is complete,
+use "action": "final_answer" and put the conclusion in "thought". Never execute
+commands or propose an action that changes a system.
 """.strip()
