@@ -20,7 +20,7 @@ KEEP = ("sudo", "auditd", "audit")          # cheap pre-filter; the normalizer d
 def post(batch):
     req = urllib.request.Request(HOOK, data=json.dumps(batch).encode(), method="POST",
         headers={"Content-Type": "application/json", "X-ARIA-Token": TOKEN})
-    urllib.request.urlopen(req, timeout=10)
+    urllib.request.urlopen(req, timeout=60)
 
 
 def follow(path):
