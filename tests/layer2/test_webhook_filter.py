@@ -12,7 +12,7 @@ def test_auditd_benign_command_is_ignored_before_dispatch(tmp_path) -> None:
 	)
 
 	assert response.status_code == 200
-	assert response.get_json() == {"status": "ignored", "reason": "benign_auditd_command"}
+	assert response.get_json() == {"status": "ignored", "reason": "not_a_gtfobin"}
 	assert dispatched == []
 
 

@@ -21,7 +21,7 @@ def test_get_user_baseline_counts_latest_binary_in_last_30_days(tmp_path, monkey
 	store.db.commit()
 	monkeypatch.setattr(baseline, "Store", lambda: store)
 
-	assert baseline.get_user_baseline("www-data") == {
+	assert baseline.get_user_baseline("www-data", "find") == {
 		"username": "www-data",
 		"total_commands": 3,
 		"binary_executions": 2,
@@ -33,7 +33,7 @@ def test_get_user_baseline_marks_unknown_user_as_anomaly(tmp_path, monkeypatch) 
 	store = Store(str(tmp_path / "audit.db"))
 	monkeypatch.setattr(baseline, "Store", lambda: store)
 
-	assert baseline.get_user_baseline("unknown") == {
+	assert baseline.get_user_baseline("unknown", "find") == {
 		"username": "unknown",
 		"total_commands": 0,
 		"binary_executions": 0,

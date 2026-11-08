@@ -1,22 +1,3103 @@
 {
-  "find": {
-    "functions": ["shell", "file-read"],
+  "7z": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "R": {
+    "functions": [
+      "shell"
+    ],
     "risk": "high"
   },
-  "vim": {
-    "functions": ["shell", "file-write"],
+  "aa-exec": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ab": {
+    "functions": [
+      "download",
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "acr": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "agetty": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "alpine": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ansible-playbook": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ansible-test": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "aoss": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "apache2": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "apache2ctl": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "apport-cli": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "apt": {
+    "functions": [],
+    "risk": "low"
+  },
+  "apt-get": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "aptitude": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "ar": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "arch-nspawn": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "aria2c": {
+    "functions": [
+      "command",
+      "download",
+      "file-read"
+    ],
+    "risk": "high"
+  },
+  "arj": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "arp": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "as": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ascii-xfr": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ascii85": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ash": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "aspell": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "asterisk": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "at": {
+    "functions": [
+      "command",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "atobm": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "autoconf": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "autoheader": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "autoreconf": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "awk": {
+    "functions": [],
+    "risk": "low"
+  },
+  "aws": {
+    "functions": [
+      "file-read",
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "base32": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "base58": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "base64": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "basenc": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "basez": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "bash": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "library-load",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "bashbug": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "batcat": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "bbot": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "bc": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "bconsole": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "bee": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "borg": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "bpftrace": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "bridge": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "bundle": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "bundler": {
+    "functions": [],
+    "risk": "low"
+  },
+  "busctl": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "busybox": {
+    "functions": [
+      "inherit",
+      "reverse-shell",
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "byebug": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "bzip2": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "c89": {
+    "functions": [],
+    "risk": "low"
+  },
+  "c99": {
+    "functions": [],
+    "risk": "low"
+  },
+  "cabal": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "cancel": {
+    "functions": [
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "capsh": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "cargo": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "cat": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "cc": {
+    "functions": [],
+    "risk": "low"
+  },
+  "cdist": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "certbot": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "chattr": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "check_by_ssh": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "check_cups": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "check_log": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "check_memory": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "check_raid": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "check_ssl_cert": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "check_statusfile": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "chmod": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "choom": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "chown": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "chroot": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "chrt": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "clamscan": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "clisp": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "cmake": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "cmp": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "cobc": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "code": {
+    "functions": [
+      "download",
+      "reverse-shell",
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "codex": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "column": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "comm": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "composer": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "cowsay": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "cowthink": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "cp": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "privilege-escalation"
+    ],
+    "risk": "high"
+  },
+  "cpan": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "cpio": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "cpulimit": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "crash": {
+    "functions": [
+      "command",
+      "inherit"
+    ],
+    "risk": "high"
+  },
+  "crontab": {
+    "functions": [
+      "command",
+      "inherit"
+    ],
+    "risk": "high"
+  },
+  "csh": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "csplit": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "csvtool": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ctr": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "cupsfilter": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "curl": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "library-load",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "cut": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "dash": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "date": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "dc": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "dd": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "debugfs": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "dhclient": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "dialog": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "diff": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "dig": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "distcc": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "dmesg": {
+    "functions": [
+      "file-read",
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "dmidecode": {
+    "functions": [
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "dmsetup": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "dnf": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "dnsmasq": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "doas": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "docker": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "dos2unix": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "dosbox": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "dotnet": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "dpkg": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "dstat": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "dvips": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "easy_install": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "easyrsa": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "eb": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "ed": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "efax": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "egrep": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "elvish": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "emacs": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "enscript": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "env": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "eqn": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "espeak": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ex": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "exiftool": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "inherit"
+    ],
+    "risk": "high"
+  },
+  "expand": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "expect": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "facter": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "fail2ban-client": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "fastfetch": {
+    "functions": [
+      "command",
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ffmpeg": {
+    "functions": [
+      "library-load"
+    ],
+    "risk": "medium"
+  },
+  "fgrep": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "file": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "find": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "finger": {
+    "functions": [
+      "download",
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "firejail": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "fish": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "flock": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "fmt": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "fold": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "forge": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "fping": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ftp": {
+    "functions": [
+      "download",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "fzf": {
+    "functions": [
+      "command",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "g++": {
+    "functions": [],
+    "risk": "low"
+  },
+  "gawk": {
+    "functions": [
+      "bind-shell",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "gcc": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "gcloud": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "gcore": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "gdb": {
+    "functions": [
+      "file-write",
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "gem": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "genie": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "genisoimage": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "getent": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "ghc": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ghci": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "gimp": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "ginsh": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "git": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "gnuplot": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "go": {
+    "functions": [
+      "bind-shell",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "grc": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "grep": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "gtester": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "guile": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "gzip": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "hashcat": {
+    "functions": [
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "hd": {
+    "functions": [],
+    "risk": "low"
+  },
+  "head": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "hexdump": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "hg": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "highlight": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "hping3": {
+    "functions": [
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "iconv": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "iftop": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "install": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "ionice": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ip": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "iptables-save": {
+    "functions": [
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "irb": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "ispell": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "java": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "jjs": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "joe": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "join": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "journalctl": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "jq": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "jrunscript": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "jshell": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "jtag": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "julia": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "knife": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "ksh": {
+    "functions": [],
+    "risk": "low"
+  },
+  "ksshell": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ksu": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "kubectl": {
+    "functions": [
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "last": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "lastb": {
+    "functions": [],
+    "risk": "low"
+  },
+  "latex": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "latexmk": {
+    "functions": [
+      "file-read",
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ld.so": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ldconfig": {
+    "functions": [
+      "library-load"
+    ],
+    "risk": "medium"
+  },
+  "less": {
+    "functions": [
+      "command",
+      "file-read",
+      "file-write",
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "lftp": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "links": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ln": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "loginctl": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "logrotate": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "logsave": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "look": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "lp": {
+    "functions": [
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "ltrace": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "lua": {
+    "functions": [
+      "bind-shell",
+      "download",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "lualatex": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "luatex": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "lwp-download": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "lwp-request": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "lxd": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "m4": {
+    "functions": [
+      "command",
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "mail": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "make": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "man": {
+    "functions": [
+      "file-read",
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "mawk": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "minicom": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "more": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "mosh-server": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "mosquitto": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "mount": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "msfconsole": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "msgattrib": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "msgcat": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "msgconv": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "msgfilter": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "msgmerge": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "msguniq": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "mtr": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "multitime": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "mutt": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "mv": {
+    "functions": [
+      "file-write",
+      "privilege-escalation"
+    ],
+    "risk": "high"
+  },
+  "mypy": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "mysql": {
+    "functions": [
+      "library-load",
+      "shell"
+    ],
     "risk": "high"
   },
   "nano": {
-    "functions": ["shell"],
-    "risk": "medium"
-  },
-  "awk": {
-    "functions": ["shell"],
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
     "risk": "high"
   },
-  "tar": {
-    "functions": ["shell"],
+  "nasm": {
+    "functions": [
+      "file-read"
+    ],
     "risk": "medium"
+  },
+  "nawk": {
+    "functions": [],
+    "risk": "low"
+  },
+  "nc": {
+    "functions": [
+      "bind-shell",
+      "download",
+      "reverse-shell",
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "ncdu": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ncftp": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "needrestart": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "neofetch": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "nft": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "nginx": {
+    "functions": [
+      "download",
+      "library-load",
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "nice": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "nl": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "nm": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "nmap": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "node": {
+    "functions": [
+      "bind-shell",
+      "download",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "nohup": {
+    "functions": [
+      "command",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "npm": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "nroff": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "nsenter": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ntpdate": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "nvim": {
+    "functions": [],
+    "risk": "low"
+  },
+  "octave": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "od": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "opencode": {
+    "functions": [
+      "command",
+      "inherit"
+    ],
+    "risk": "high"
+  },
+  "openssl": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "library-load",
+      "reverse-shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "openvpn": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "openvt": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "opkg": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pandoc": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "inherit"
+    ],
+    "risk": "high"
+  },
+  "passwd": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "paste": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "pax": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "pdb": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "pdflatex": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pdftex": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "perf": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "perl": {
+    "functions": [
+      "download",
+      "file-read",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "perlbug": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pexec": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pg": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "php": {
+    "functions": [
+      "command",
+      "download",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "pic": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pico": {
+    "functions": [],
+    "risk": "low"
+  },
+  "pidstat": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pip": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pipx": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "pkexec": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pkg": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "plymouth": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "podman": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "poetry": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "posh": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pr": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "procmail": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "pry": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "psftp": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "psql": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ptx": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "puppet": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pwsh": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "pygmentize": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "pyright": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "python": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "library-load",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "qpdf": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "rake": {
+    "functions": [
+      "file-read",
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "ranger": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rc": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "readelf": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "red": {
+    "functions": [],
+    "risk": "low"
+  },
+  "redcarpet": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "redis": {
+    "functions": [
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "restic": {
+    "functions": [
+      "command",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "rev": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "rlogin": {
+    "functions": [
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "rlwrap": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rpm": {
+    "functions": [
+      "command",
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rpmdb": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rpmquery": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rpmverify": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rsync": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rsyslogd": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "rtorrent": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ruby": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "library-load",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "run-mailcap": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "run-parts": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "runscript": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rustc": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "inherit"
+    ],
+    "risk": "high"
+  },
+  "rustdoc": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "rustfmt": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "rustup": {
+    "functions": [
+      "command",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "rview": {
+    "functions": [],
+    "risk": "low"
+  },
+  "rvim": {
+    "functions": [],
+    "risk": "low"
+  },
+  "sash": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "scanmem": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "scp": {
+    "functions": [
+      "download",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "screen": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "script": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "scrot": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "sed": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "service": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "setarch": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "setcap": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "setfacl": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "setlock": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "sftp": {
+    "functions": [
+      "download",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "sg": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "shred": {
+    "functions": [
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "shuf": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "slsh": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "smbclient": {
+    "functions": [
+      "download",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "snap": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "socat": {
+    "functions": [
+      "bind-shell",
+      "download",
+      "file-read",
+      "file-write",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "socket": {
+    "functions": [
+      "bind-shell",
+      "reverse-shell"
+    ],
+    "risk": "medium"
+  },
+  "soelim": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "softlimit": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "sort": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "split": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "sqlite3": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "sqlmap": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "ss": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "ssh": {
+    "functions": [
+      "download",
+      "file-read",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "ssh-agent": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "ssh-copy-id": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "ssh-keygen": {
+    "functions": [
+      "library-load"
+    ],
+    "risk": "medium"
+  },
+  "ssh-keyscan": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "sshfs": {
+    "functions": [
+      "command",
+      "download",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "sshpass": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "sshuttle": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "start-stop-daemon": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "stdbuf": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "strace": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "strings": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "su": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "sudo": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "sysctl": {
+    "functions": [
+      "command",
+      "file-read"
+    ],
+    "risk": "high"
+  },
+  "systemctl": {
+    "functions": [
+      "inherit",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "systemd-resolve": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "systemd-run": {
+    "functions": [
+      "command",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tac": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "tail": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "tailscale": {
+    "functions": [
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "tar": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "task": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "taskset": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tasksh": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tbl": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "tclsh": {
+    "functions": [
+      "library-load",
+      "reverse-shell",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tcpdump": {
+    "functions": [
+      "command",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "tcsh": {
+    "functions": [
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tdbtool": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tee": {
+    "functions": [
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "telnet": {
+    "functions": [
+      "reverse-shell",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "terraform": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "tex": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tftp": {
+    "functions": [
+      "download",
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "tic": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "time": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "timedatectl": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "timeout": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tmate": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "tmux": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "top": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "torify": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "torsocks": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "troff": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "tsc": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "tshark": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "ul": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "unexpand": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "uniq": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "unshare": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "unsquashfs": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "unzip": {
+    "functions": [
+      "privilege-escalation"
+    ],
+    "risk": "medium"
+  },
+  "update-alternatives": {
+    "functions": [
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "urlget": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "uuencode": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "uv": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "vagrant": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "valgrind": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "varnishncsa": {
+    "functions": [
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "vi": {
+    "functions": [
+      "file-read",
+      "file-write",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "view": {
+    "functions": [],
+    "risk": "low"
+  },
+  "vigr": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "vim": {
+    "functions": [
+      "file-read",
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "vimdiff": {
+    "functions": [],
+    "risk": "low"
+  },
+  "vipw": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "virsh": {
+    "functions": [
+      "command",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "volatility": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "w3m": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "wall": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "watch": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "wc": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "wg-quick": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "wget": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "whiptail": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "whois": {
+    "functions": [
+      "download",
+      "upload"
+    ],
+    "risk": "medium"
+  },
+  "wireshark": {
+    "functions": [
+      "file-write",
+      "inherit"
+    ],
+    "risk": "high"
+  },
+  "wish": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "xargs": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "xdg-user-dir": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "xdotool": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "xelatex": {
+    "functions": [],
+    "risk": "low"
+  },
+  "xetex": {
+    "functions": [],
+    "risk": "low"
+  },
+  "xmodmap": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "xmore": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "xpad": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "xxd": {
+    "functions": [
+      "file-read",
+      "file-write"
+    ],
+    "risk": "high"
+  },
+  "xz": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "yarn": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "yash": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "yelp": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "yt-dlp": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "yum": {
+    "functions": [
+      "command",
+      "download",
+      "inherit"
+    ],
+    "risk": "high"
+  },
+  "zathura": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "zcat": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "zgrep": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "zic": {
+    "functions": [
+      "command"
+    ],
+    "risk": "high"
+  },
+  "zip": {
+    "functions": [
+      "file-read",
+      "shell"
+    ],
+    "risk": "high"
+  },
+  "zless": {
+    "functions": [
+      "inherit"
+    ],
+    "risk": "medium"
+  },
+  "zsh": {
+    "functions": [
+      "download",
+      "file-read",
+      "file-write",
+      "inherit",
+      "reverse-shell",
+      "shell",
+      "upload"
+    ],
+    "risk": "high"
+  },
+  "zsoelim": {
+    "functions": [
+      "file-read"
+    ],
+    "risk": "medium"
+  },
+  "zypper": {
+    "functions": [
+      "shell"
+    ],
+    "risk": "high"
   }
 }

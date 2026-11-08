@@ -112,14 +112,20 @@ def action_node(state: AgentState) -> dict[str, Any]:
 		value = action_input.get("username")
 		if value is None:
 			value = _event_value(state["event"], "user", "username") or ""
-		result = get_user_baseline(str(value))
+		binary = action_input.get("binary")
+		if binary is None:
+			binary = _event_value(state["event"], "binary") or ""
+		result = get_user_baseline(str(value), str(binary))
 		evidence_marker = "baseline:anomaly"
 		confidence_delta = 0.15 if result.get("is_anomaly") is True else 0.0
 	elif action == "get_process_tree":
 		value = action_input.get("command")
 		if value is None:
 			value = _event_value(state["event"], "command_clean", "command") or ""
-		result = get_process_tree(str(value))
+		pid = action_input.get("pid")
+		if pid is None:
+			pid = _event_value(state["event"], "pid", "process_id")
+		result = get_process_tree(str(value), int(pid) if pid is not None else None)
 		evidence_marker = "parent:suspicious"
 		confidence_delta = 0.15 if result.get("is_suspicious_parent") is True else 0.0
 	elif action == "query_wazuh_logs":

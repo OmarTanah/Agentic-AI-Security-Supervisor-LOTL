@@ -11,8 +11,10 @@ most 0.2 (benign), or when no more useful evidence is available.
 
 Respond with JSON only, using exactly this shape:
 {"thought": "...", "action": "tool_name", "action_input": {"param": "value"}}
-The available read-only tools are: check_gtfobins, get_user_baseline,
-get_process_tree, and query_wazuh_logs(query). Use query_wazuh_logs if you need to
+The available read-only tools are: check_gtfobins, get_user_baseline(username, binary),
+get_process_tree(command, pid), and query_wazuh_logs(query). Pass the event's binary
+and PID when available. The get_user_baseline tool requires both arguments, for example
+{"username": "www-data", "binary": "find"}. Use query_wazuh_logs if you need to
 check whether the same user or host executed similar commands recently. You must
 call the first three tools before outputting a final_answer; use the Wazuh log tool
 when it provides useful historical evidence. When the investigation is complete,

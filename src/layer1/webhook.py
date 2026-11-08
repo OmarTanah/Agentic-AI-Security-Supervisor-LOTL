@@ -1,8 +1,11 @@
 """Flask webhook: Wazuh Manager -> LOTL-ARIA (Layer 1 entry point)."""
 import hmac
+import json
 import logging
 import os
+import re
 import threading
+from pathlib import Path
 
 from flask import Flask, jsonify, request
 
@@ -13,9 +16,15 @@ from .store import Store
 
 log = logging.getLogger("lotl_aria.layer1")
 SHARED_SECRET = ""
-AUDITD_INTERESTING_KEYWORDS = (
-    "sudo", "find", "bash", "sh", "nc", "socat", "python", "perl", "vim", "nano", "awk", "tar"
-)
+GTFOBINS_PATH = Path(__file__).resolve().parents[2] / "data" / "gtfobins.json"
+with GTFOBINS_PATH.open(encoding="utf-8") as catalog_file:
+    GTFOBINS = frozenset(json.load(catalog_file))
+
+
+def _contains_gtfobin(command: str) -> bool:
+    """Return whether a command contains a catalogued executable name."""
+    return any(re.search(rf"(?<![A-Za-z0-9_.-]){re.escape(binary)}(?![A-Za-z0-9_.-])", command)
+               for binary in GTFOBINS)
 
 
 def run_agent_task(ev: dict) -> None:
@@ -53,10 +62,8 @@ def create_app(store: Store | None = None, dispatch=None) -> Flask:
             ev = normalize(raw)
             if ev is None:
                 results.append({"status": "ignored", "reason": "no command field"})
-            elif ev["source"] == "auditd" and not any(
-                keyword in ev["command_clean"].lower() for keyword in AUDITD_INTERESTING_KEYWORDS
-            ):
-                results.append({"status": "ignored", "reason": "benign_auditd_command"})
+            elif ev["source"] == "auditd" and not _contains_gtfobin(ev["command_clean"]):
+                results.append({"status": "ignored", "reason": "not_a_gtfobin"})
             elif store.is_duplicate(ev["dedup_key"]):
                 results.append({"status": "dropped", "reason": "duplicate<60s"})
             else:
