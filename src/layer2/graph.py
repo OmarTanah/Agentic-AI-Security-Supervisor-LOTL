@@ -1,4 +1,5 @@
 import json
+import re
 from typing import Any
 
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -24,35 +25,28 @@ def _event_value(event: dict, *keys: str) -> Any:
 
 def _model_text(response: Any) -> str:
 	content = getattr(response, "content", response)
+	if isinstance(content, str) and not content:
+		additional_kwargs = getattr(response, "additional_kwargs", {})
+		if isinstance(additional_kwargs, dict):
+			reasoning_content = additional_kwargs.get("reasoning_content")
+			if reasoning_content:
+				content = str(reasoning_content)
 	if isinstance(content, list):
-		return "".join(
-			item.get("text", "") if isinstance(item, dict) else str(item)
-			for item in content
-		)
+		if not content:
+			return ""
+		first_block = content[0]
+		if isinstance(first_block, dict):
+			return str(first_block.get("text", ""))
+		return str(first_block)
 	return str(content)
 
 
 def _extract_json_object(text: str) -> str:
-	"""Extract the first valid JSON object from model output."""
-	cleaned = text.strip()
-	if cleaned.startswith("```"):
-		lines = cleaned.splitlines()
-		if lines and lines[0].startswith("```"):
-			lines = lines[1:]
-		if lines and lines[-1].strip() == "```":
-			lines = lines[:-1]
-		cleaned = "\n".join(lines).strip()
-
-	decoder = json.JSONDecoder()
-	for index, character in enumerate(cleaned):
-		if character != "{":
-			continue
-		try:
-			_, end = decoder.raw_decode(cleaned[index:])
-			return cleaned[index : index + end]
-		except json.JSONDecodeError:
-			continue
-	raise json.JSONDecodeError("No valid JSON object found", cleaned, 0)
+	"""Extract a JSON object from model output, ignoring surrounding text."""
+	match = re.search(r"\{.*\}", text, re.DOTALL)
+	if match is None:
+		raise json.JSONDecodeError("No JSON object found", text, 0)
+	return match.group(0)
 
 
 def thought_node(state: AgentState) -> dict[str, Any]:
@@ -76,6 +70,13 @@ def thought_node(state: AgentState) -> dict[str, Any]:
 		if not isinstance(action_input, dict):
 			action_input = {}
 		action = str(decision.get("action", "final_answer"))
+		if action == "final_answer":
+			action_input = {
+				**action_input,
+				"verdict": decision.get("verdict", action_input.get("verdict")),
+				"confidence": decision.get("confidence", action_input.get("confidence")),
+				"reasoning": decision.get("reasoning", action_input.get("reasoning")),
+			}
 		return {
 			"thought": str(decision.get("thought", "")),
 			"action": action,
@@ -99,7 +100,24 @@ def action_node(state: AgentState) -> dict[str, Any]:
 	"""Execute one supported read-only investigation tool."""
 	action = state["action"]
 	if action == "final_answer":
-		return {"final_answer": state["thought"], "stopped": True}
+		action_input = state["action_input"]
+		verdict = str(action_input.get("verdict", "investigate")).lower()
+		if verdict not in ("malicious", "benign", "investigate"):
+			verdict = "investigate"
+		try:
+			confidence = float(action_input.get("confidence", state["confidence"]))
+		except (TypeError, ValueError):
+			confidence = state["confidence"]
+		confidence = min(1.0, max(0.0, confidence))
+		reasoning_value = action_input.get("reasoning") or state["thought"]
+		reasoning = str(reasoning_value)
+		return {
+			"verdict": verdict,
+			"confidence": confidence,
+			"reasoning": reasoning,
+			"final_answer": reasoning,
+			"stopped": True,
+		}
 	action_input = state["action_input"]
 	if action == "check_gtfobins":
 		binary = action_input.get("binary") or _event_value(state["event"], "binary")

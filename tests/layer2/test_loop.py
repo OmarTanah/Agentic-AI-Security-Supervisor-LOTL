@@ -30,3 +30,26 @@ def test_loop_stops_when_confidence_reaches_threshold(monkeypatch) -> None:
     assert result["iteration"] == 1
     assert result["stopped"] is True
     assert result["observation"]["is_gtfobin"] is True
+
+
+def test_action_node_extracts_final_answer_fields() -> None:
+    state = create_initial_state({"command_clean": "sudo find"})
+    state.update(
+        {
+            "action": "final_answer",
+            "thought": "I have gathered enough evidence.",
+            "action_input": {
+                "verdict": "malicious",
+                "confidence": 1.0,
+                "reasoning": "The exact payload matches GTFOBins.",
+            },
+        }
+    )
+
+    result = graph_module.action_node(state)
+
+    assert result["verdict"] == "malicious"
+    assert result["confidence"] == 1.0
+    assert result["reasoning"] == "The exact payload matches GTFOBins."
+    assert result["final_answer"] == "The exact payload matches GTFOBins."
+    assert result["stopped"] is True

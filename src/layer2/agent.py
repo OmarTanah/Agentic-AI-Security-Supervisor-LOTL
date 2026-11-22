@@ -14,7 +14,14 @@ def _structured_answer(result: dict[str, Any]) -> dict[str, Any]:
     """Convert the completed graph state into the public agent response."""
     confidence = float(result.get("confidence", 0.5))
     final_answer = result.get("final_answer", "")
-    reasoning = str(final_answer or result.get("thought", ""))
+    reasoning = str(result.get("reasoning") or final_answer or result.get("thought", ""))
+    verdict = str(result.get("verdict", "")).lower()
+    if result.get("reasoning") and verdict in ("malicious", "benign", "investigate"):
+        return {
+            "verdict": verdict,
+            "confidence": confidence,
+            "reasoning": reasoning,
+        }
 
     try:
         parsed_answer = json.loads(reasoning)

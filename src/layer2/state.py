@@ -15,6 +15,8 @@ class AgentState(TypedDict):
     action_input: dict[str, Any]
     observation: Any
     final_answer: str
+    verdict: str
+    reasoning: str
     stopped: bool
 
 
@@ -33,5 +35,7 @@ def create_initial_state(event: dict | None = None) -> AgentState:
         "action_input": {},
         "observation": None,
         "final_answer": "",
+        "verdict": "investigate",
+        "reasoning": "",
         "stopped": False,
     }
